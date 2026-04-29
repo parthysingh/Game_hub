@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Game Hub — A collection of fun browser games. Play Snake, Flappy Bird, Tic-Tac-Toe and more!">
+  <meta name="theme-color" content="#6c5ce7">
+  <title>Game Hub — Mini Arcade</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+  <canvas id="bg-canvas"></canvas>
+  <header id="site-header">
+    <div class="header-inner">
+      <div class="logo-area">
+        <span class="logo-icon">🎮</span>
+        <div>
+          <h1 class="logo-text">Game Hub</h1>
+          <p class="tagline">Your mini arcade — play anywhere, anytime</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button id="theme-toggle" title="Toggle Theme" aria-label="Toggle theme">
+          <svg id="theme-icon-dark" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-2.98 0-5.4-2.42-5.4-5.4 0-1.81.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/></svg>
+          <svg id="theme-icon-light" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" style="display:none;"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0 .39-.39.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+  <main id="main-content">
+    <section id="games-section">
+      <h2 class="section-title"><span class="section-icon">🕹️</span> Choose Your Game</h2>
+      <div id="games-grid" class="games-grid">
+        <a href="games/flappy/index.html" class="game-card" data-game="flappy" style="--card-accent:#4EC0CA;--card-glow:rgba(78,192,202,0.3);">
+          <div class="card-thumbnail"><canvas class="card-canvas" data-game="flappy" width="320" height="200"></canvas></div>
+          <div class="card-body">
+            <h3 class="card-title">Flappy Bird</h3>
+            <p class="card-desc">Tap to fly through pipes. How far can you go?</p>
+            <div class="card-footer">
+              <span class="card-score"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><span class="score-val" data-game="flappy">0</span></span>
+              <span class="play-btn">Play <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+            </div>
+          </div>
+        </a>
+        <a href="games/snake/index.html" class="game-card" data-game="snake" style="--card-accent:#00b894;--card-glow:rgba(0,184,148,0.3);">
+          <div class="card-thumbnail"><canvas class="card-canvas" data-game="snake" width="320" height="200"></canvas></div>
+          <div class="card-body">
+            <h3 class="card-title">Snake</h3>
+            <p class="card-desc">Classic snake — eat, grow, and survive!</p>
+            <div class="card-footer">
+              <span class="card-score"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><span class="score-val" data-game="snake">0</span></span>
+              <span class="play-btn">Play <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+            </div>
+          </div>
+        </a>
+        <a href="games/tictactoe/index.html" class="game-card" data-game="tictactoe" style="--card-accent:#e17055;--card-glow:rgba(225,112,85,0.3);">
+          <div class="card-thumbnail"><canvas class="card-canvas" data-game="tictactoe" width="320" height="200"></canvas></div>
+          <div class="card-body">
+            <h3 class="card-title">Tic Tac Toe</h3>
+            <p class="card-desc">Challenge the AI — easy, medium, or hard!</p>
+            <div class="card-footer">
+              <span class="card-score"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><span class="score-val" data-game="tictactoe">0W</span></span>
+              <span class="play-btn">Play <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+            </div>
+          </div>
+        </a>
+        <a href="games/asteroids/index.html" class="game-card" data-game="asteroids" style="--card-accent:#D900FF;--card-glow:rgba(217,0,255,0.3);">
+          <div class="card-thumbnail"><canvas class="card-canvas" data-game="asteroids" width="320" height="200"></canvas></div>
+          <div class="card-body">
+            <h3 class="card-title">Asteroid Shooter</h3>
+            <p class="card-desc">Deep space mission — destroy asteroids and survive!</p>
+            <div class="card-footer">
+              <span class="card-score"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><span class="score-val" data-game="asteroids">0</span></span>
+              <span class="play-btn">Play <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+            </div>
+          </div>
+        </a>
+        <a href="games/minesweeper/index.html" class="game-card" data-game="minesweeper" style="--card-accent:#808080;--card-glow:rgba(128,128,128,0.3);">
+          <div class="card-thumbnail"><canvas class="card-canvas" data-game="minesweeper" width="320" height="200"></canvas></div>
+          <div class="card-body">
+            <h3 class="card-title">Minesweeper</h3>
+            <p class="card-desc">Classic Windows logic puzzle — avoid the bombs!</p>
+            <div class="card-footer">
+              <span class="card-score"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><span class="score-val" data-game="minesweeper">0</span></span>
+              <span class="play-btn">Play <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+            </div>
+          </div>
+        </a>
+        <a href="games/pacman/index.html" class="game-card" data-game="pacman" style="--card-accent:#fdcb6e;--card-glow:rgba(253,203,110,0.3);">
+          <div class="card-thumbnail"><canvas class="card-canvas" data-game="pacman" width="320" height="200"></canvas></div>
+          <div class="card-body">
+            <h3 class="card-title">Pac-Man</h3>
+            <p class="card-desc">Classic arcade action — eat dots and avoid ghosts!</p>
+            <div class="card-footer">
+              <span class="card-score"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg><span class="score-val" data-game="pacman">0</span></span>
+              <span class="play-btn">Play <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+            </div>
+          </div>
+        </a>
+        <div class="game-card coming-soon">
+          <div class="card-thumbnail coming-soon-thumb">
+            <div class="lock-icon"><svg viewBox="0 0 24 24" width="48" height="48" fill="currentColor" opacity="0.3"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM12 17c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1s3.1 1.39 3.1 3.1v2z"/></svg></div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Coming Soon</h3>
+            <p class="card-desc">A new game is on its way...</p>
+            <div class="card-footer">
+              <span class="card-score coming-soon-badge">🔒 Locked</span>
+              <span class="play-btn disabled">Soon</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="leaderboard-section">
+      <h2 class="section-title"><span class="section-icon">🏆</span> Leaderboard</h2>
+      <div id="leaderboard" class="leaderboard-container"></div>
+    </section>
+  </main>
+  <footer id="site-footer">
+    <p>Built with ❤️ using vanilla HTML, CSS & JavaScript</p>
+    <p class="footer-sub">No frameworks. No libraries. Just code.</p>
+  </footer>
+  <script src="hub.js"></script>
+</body>
+</html>
